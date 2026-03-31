@@ -20,6 +20,10 @@
 
 					end if
 
+						'http://115.85.64.67/json/jsonsdmlogin.asp?user_id=a&password=a'
+
+						'response.write(querytbl)
+
 						'Ambil data'
 						set rd = server.CreateObject("ADODB.RECORDSET")
 						rd.Open querytbl, conn,3,1

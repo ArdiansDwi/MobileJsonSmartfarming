@@ -12,10 +12,8 @@
 						'membuat query'
 						if Request.QueryString("user_id")="ARDI"  then
 						querytbl = "select kdkel,kelompok as kelompok from vJatahSPTApos_kelompok where pos is not null and sisa>0 group by kdkel,kelompok order by kdkel"
-						'querytbl = "select kdkel,kelompok as kelompok from vJatahSPTApos_kelompok where pos is not null and sisa>0 group by kdkel,kelompok order by kdkel"
-
 						elseif Request.QueryString("pos")<>""  then
-						querytbl = "select kdkel, kelompok from vJatahSPTApos_kelompok where upper(pos) in (select upper(pos) from vpostebu where wilayah=(select Wilayah from vPosTebu where upper(Pos) = upper('"&Request.QueryString("pos")&"'))) and sisa>0 group by kdkel,kelompok order by kdkel"
+						querytbl = "select kdkel, kelompok,pos from vJatahSPTApos_kelompok where upper(pos) in (select upper(pos) from vpostebu where wilayah=(select Wilayah from vPosTebu where upper(Pos) = upper('"&Request.QueryString("pos")&"'))) and sisa>0 group by kdkel,kelompok,pos order by kdkel"
 						end if
 
 
