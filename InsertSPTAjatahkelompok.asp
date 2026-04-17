@@ -85,7 +85,7 @@
 
 
 	'insert ke table tblspa
-	qinsertspa = "insert into tblspa (kdspaKuota,kdspa,tglberlaku,kdafdeling,afdeling,drjam,sdjam,TglEntry,status,statusgwg,Kdptn,Kdwkt,nmuser,namaptn,kdBap,Versi,keterangan,KodeStiker,NoKend) select top 1 kdspa as kdspaKuota,'"&KodeInsert&"',tglberlaku,kdafdeling,afdeling ,convert(datetime,convert(varchar,tglberlaku,23)+' 06:00:00',120) as drjam,convert(datetime,convert(varchar,tglberlaku+1,23)+' 05:59:59',120) as sdjam,getdate() as TglEntry,1 as Status,0 as statusgwg,kdptn as kdptn,0 as Kdwkt,'"&UserId&"' as nmuser,nama as namaptn,kdBap,0 as Versi,'SPTAMobile','" & Request.QueryString("kodesticker") & "' as KodeStiker, '" & Request.QueryString("nokendaraan") & "' as NoKend  from vJatahSPTA_Mobile_print where kdspa='"&kdspa&"' order by TglEntry"
+	qinsertspa = "insert into tblspa (kdspaKuota,kdspa,tglberlaku,kdafdeling,afdeling,drjam,sdjam,TglEntry,status,statusgwg,Kdptn,Kdwkt,nmuser,namaptn,kdBap,Versi,keterangan,KodeStiker,NoKend, Pos) select top 1 kdspa as kdspaKuota,'"&KodeInsert&"',tglberlaku,kdafdeling,afdeling ,convert(datetime,convert(varchar,tglberlaku,23)+' 06:00:00',120) as drjam,convert(datetime,convert(varchar,tglberlaku+1,23)+' 05:59:59',120) as sdjam,getdate() as TglEntry,1 as Status,0 as statusgwg,kdptn as kdptn,0 as Kdwkt,'"&UserId&"' as nmuser,nama as namaptn,kdBap,0 as Versi,'SPTAMobile','" & Request.QueryString("kodesticker") & "' as KodeStiker, '" & Request.QueryString("nokendaraan") & "' as NoKend, '" & Request.QueryString("pos") & "' as Pos  from vJatahSPTA_Mobile_print where kdspa='"&kdspa&"' order by TglEntry"
 
 
 
